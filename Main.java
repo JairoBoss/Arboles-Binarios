@@ -19,9 +19,10 @@ public class Main {
         arbolito.insertar(70);
         arbolito.insertar(60);
         arbolito.insertar(80);
+        arbolito.encontrar(70);
+        arbolito.eliminar(0);
         
-        
-        arbolito.inorder();
+        //arbolito.inorder();
     }
     
 }
