@@ -76,12 +76,46 @@ public class Arbol {
             System.out.println("El numero " + dato + " Si se encuentra el dato");
         }
     }
+    public Nodo borrar(int dato){
+        return eliminar(raiz, dato);
+    }
     
-    public void eliminar(int dato) {
-        Nodo opc1 = buscar(dato);
-        if (opc1 == null) {
-            System.out.println("El numero " + dato + " No existe crack");
+    public Nodo eliminar(Nodo raiz,int dato) {                
+        if (raiz == null) {            
+        }else{
+            if (dato > raiz.dato) {
+                raiz.derecha = eliminar(raiz.derecha,dato);
+            }else if(dato < raiz.dato){
+                raiz.izquierda = eliminar(raiz.izquierda,dato);
+            }else{
+                if (raiz.izquierda==null && raiz.derecha==null) {
+                    raiz = null;
+                }else if(raiz.derecha == null){
+                    raiz.dato = sucesor(raiz);
+                    raiz.derecha = eliminar(raiz.derecha,raiz.dato);
+                }else{
+                    raiz.dato = predecesor(raiz);
+                    raiz.izquierda = eliminar(raiz.izquierda,raiz.dato);
+                }                                    
+            }                                    
         }
+        return raiz;
     }        
+    
+    public int sucesor(Nodo raiz){
+        raiz = raiz.derecha;
+        while(raiz.izquierda != null){
+            raiz = raiz.izquierda;
+        }
+        return raiz.dato;
+    }
+    
+    public int predecesor(Nodo raiz){
+        raiz = raiz.izquierda;
+        while(raiz.derecha != null){
+            raiz = raiz.derecha;
+        }
+        return raiz.dato;
+    }
 
 }

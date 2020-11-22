@@ -20,9 +20,13 @@ public class Main {
         arbolito.insertar(60);
         arbolito.insertar(80);
         arbolito.encontrar(70);
-        arbolito.eliminar(0);
         
-        //arbolito.inorder();
+        
+        arbolito.inorder();
+        arbolito.borrar(70);        
+        System.out.println("xd");
+        arbolito.encontrar(70);
+        arbolito.inorder();
     }
     
 }
