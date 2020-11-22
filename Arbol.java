@@ -52,6 +52,30 @@ public class Arbol {
             System.out.println(" " + raiz.dato);
             inorder(raiz.derecha);
         }
+    }
+
+    public void postorder() {
+        inorder(raiz);
+    }
+
+    public void postorder(Nodo raiz) {
+        if (raiz != null) {
+            inorder(raiz.izquierda);
+            inorder(raiz.derecha);
+            System.out.println(raiz.dato + " ");
+        }
+    }
+
+    public void preorden() {
+        inorder(raiz);
+    }
+
+    public void preorden(Nodo raiz) {
+        if (raiz != null) {
+            System.out.println(raiz.dato + " ");
+            inorder(raiz.izquierda);
+            inorder(raiz.derecha);
+        }
     }   
 
     public Nodo buscar(Nodo raiz, int dato) {
